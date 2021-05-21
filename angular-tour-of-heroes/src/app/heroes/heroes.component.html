@@ -1,5 +1,5 @@
-<div *ngIf="selectedHero">
-  <!--Cuando se inicia la aplicación, selectedHero está con el valor undefined por diseño.
+<!-- <div *ngIf="selectedHero"> -->
+<!--Cuando se inicia la aplicación, selectedHero está con el valor undefined por diseño.
 
   Las expresiones vinculantes en la plantilla que hacen referencia a las propiedades de selectedHero - expresiones como {{selectedHero.name}} - debe fallar porque no hay ningún héroe seleccionado.
 
@@ -7,17 +7,18 @@
   El componente sólo debera mostrar los detalles del héroe seleccionado si el selectedHero existe.
 
   Envuelva el HTML de detalles del héroe con un <div>. Agrega la directiva de Angular *ngIf al <div> y establécelo en selectedHero.-->
-  <h2>{{ selectedHero.name | uppercase }} Details</h2>
+<!-- <h2>{{ selectedHero.name | uppercase }} Details</h2>
   <div><span>id: </span>{{ selectedHero.id }}</div>
 
-  <div>
-    <!--El cuadro de texto debe mostrar la propiedad de name del héroe y actualizar esa propiedad a medida que el usuario lo escribe. [(ngModel)] es la sintaxis de enlace de datos bidireccional de Angular.-->
-    <label
-      >name: <input [(ngModel)]="selectedHero.name" placeholder="name" />
-      <!--La plantilla todavía se refiere a la antigua propiedad del hero del componente que ya no existe. Cambiar el nombre de hero a selectedHero.-->
-    </label>
+  <div> -->
+<!--El cuadro de texto debe mostrar la propiedad de name del héroe y actualizar esa propiedad a medida que el usuario lo escribe. [(ngModel)] es la sintaxis de enlace de datos bidireccional de Angular.-->
+<!-- <label
+      >name: <input [(ngModel)]="selectedHero.name" placeholder="name" /> -->
+<!--La plantilla todavía se refiere a la antigua propiedad del hero del componente que ya no existe. Cambiar el nombre de hero a selectedHero.-->
+<!-- </label>
   </div>
-</div>
+
+</div> -->
 
 <h2>My Heroes</h2>
 <ul class="heroes">
@@ -32,3 +33,12 @@
     <span class="badge">{{ hero.id }}</span> {{ hero.name }}
   </li>
 </ul>
+
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
+<!--HeroesComponent sigue siendo la vista maestra / detalles.
+
+  Mostraba los detalles del héroe por sí mismo, antes de cortaremos una pequeña parte de la plantilla. Ahora delegaremos en el HeroDetailComponent.
+
+  Los dos componentes tendrán una relación padre/hijo. El componente padre heroesComponent controlará al componente hijo HeroDetailComponent enviándole un nuevo héroe para mostrar cuando el usuario seleccione un héroe de la lista.
+
+  No cambiaremos la clase HeroesComponent pero cambiaremos su plantilla.-->
