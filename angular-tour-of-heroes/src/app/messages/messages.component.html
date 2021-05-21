@@ -2,8 +2,10 @@
   ngFor =>  presenta la lista de mensajes en elementos repetidos.
 Un enlace de evento de Angular víncula el evento click del botón a MessageService.clear().
 -->
-<div *ngIf="MessageService.messages.length">
+<div *ngIf="messageService.messages.length">
+
   <h2>Messages</h2>
-  <button class="clear" (click)="MessageService.clear()">clear</button>
-  <div *ngFor="let message of MessageService.messages">{{ message }}</div>
+  <button class="clear" (click)="messageService.clear()">clear</button>
+  <div *ngFor='let message of messageService.messages'> {{message}} </div>
+
 </div>

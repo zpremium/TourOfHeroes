@@ -8,7 +8,7 @@ import { MessageService } from '../message.service';
 })
 export class MessagesComponent implements OnInit {
 
-  constructor(public MessageService:MessageService) {
+  constructor(public messageService:MessageService) {
     //La propiedad messageService debe ser pública porque está a punto de unirse a ella en la plantilla.
    }
 

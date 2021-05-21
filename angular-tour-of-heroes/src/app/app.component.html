@@ -1,9 +1,10 @@
 <h1>{{ title }}</h1>
 <!--INTERPOLACIÓN DE TITULO DE APP.COMPONENTS.TS-->
 <!-- Agregamos un elemento <nav> y, dentro de eso, un elemento de anclaje que, al hacer click, desencadena la navegación hacia HeroesComponent. ||||| El routerLink es el selector de la directiva RouterLink que hace que el usuario haga click en las navegaciones del enrutador. Es otra de las directivas públicas en RouterModule. -->
-<nav>
-  <a routerLink="/heroes">Heroes</a>
-</nav>
+  <nav>
+    <a routerLink="/dashboard">Dashboard</a>
+    <a routerLink="/heroes">Heroes</a>
+  </nav>
 <router-outlet></router-outlet>
 <!-- Hemos eliminado <app-heroes> porque sólo mostraremos HeroesComponent cuando el usuario navega hacia él.
   <router-outlet> le dice al enrutador dónde mostrar las vistas enrutadas. -->

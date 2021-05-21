@@ -21,20 +21,30 @@
 </div> -->
 
 <h2>My Heroes</h2>
+<div>
+  <label for="new-hero">Hero name: </label>
+  <input id="new-hero" #heroName />
+
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button class="add-button" (click)="add(heroName.value); heroName.value = ''">
+    Add hero
+  </button>
+</div>
+
 <ul class="heroes">
-  <li
-    *ngFor="let hero of heroes"
-    (click)="onSelect(hero)"
-    [class.selected]="hero === selectedHero"
-  >
-    <!--El *ngFor es la directiva de repetidor de Angular. Repite el elemento host para cada elemento en una lista. |||||
+  <li *ngFor="let hero of heroes">
+    <a routerLink="/detail/{{ hero.id }}">
+      <!-- (click)="onSelect(hero)"
+    [class.selected]="hero === selectedHero"   =>>>>> ESTO IBA ANTES EN <LI> -->
+      <!--El *ngFor es la directiva de repetidor de Angular. Repite el elemento host para cada elemento en una lista. |||||
     Cuando el usuario hace click en un héroe en la lista maestra, el componente debe mostrar los detalles del héroe seleccionado en la parte inferior de la página. ||||
     Es difícil identificar al héroe selecccionado en la lista cuando todos los elementos <li> se aparecen. Ese color de héroe seleccionado es el trabajo de la clase CSS .selected en los estilos que agregamos antes. Sólo tenemos que aplicar la clase .selected al <li> cuando el usuario hace click. -->
-    <span class="badge">{{ hero.id }}</span> {{ hero.name }}
+      <span class="badge">{{ hero.id }}</span> {{ hero.name }}</a
+    >
+    <button class="delete" title="delete hero" (click)="delete(hero)">x</button>
   </li>
 </ul>
 
-<app-hero-detail [hero]="selectedHero"></app-hero-detail>
 <!--HeroesComponent sigue siendo la vista maestra / detalles.
 
   Mostraba los detalles del héroe por sí mismo, antes de cortaremos una pequeña parte de la plantilla. Ahora delegaremos en el HeroDetailComponent.
@@ -42,5 +52,3 @@
   Los dos componentes tendrán una relación padre/hijo. El componente padre heroesComponent controlará al componente hijo HeroDetailComponent enviándole un nuevo héroe para mostrar cuando el usuario seleccione un héroe de la lista.
 
   No cambiaremos la clase HeroesComponent pero cambiaremos su plantilla.-->
-
-
